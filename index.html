@@ -109,7 +109,6 @@
   transform: scale(1.1);
 }
 
-
 </style>
 
 
@@ -136,69 +135,69 @@
 	    </div>
 	  </nav>
 	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/main_image.jpg);">
-	          	 <div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Arman Shikalgar</span></h1>
+    <div class="home-slider owl-carousel">
+        <div class="slider-item ">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+                    
+                    <!-- Removed background image but kept structure for alignment -->
+                    <div class="one-third js-fullheight order-md-last img" style="background-image:none;">
+                        <div class="overlay"></div>
+                    </div>
 
-						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
+                    <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                        <div class="text">
+                            <span class="subheading">Hello!</span>
+                            <h1 class="mb-4 mt-3">I'm <span>Arman Shikalgar</span></h1>
 
-						<script>
+                            <!-- Typing Animation -->
+                            <span id="typing-animation"></span>
 
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
+                            <script>
+                                // Initialize the typing animation
+                                const typingAnimationElement = document.getElementById('typing-animation');
 
-						// Create an array of typing text
-						const typingTexts = [
-						'Data Analyst  ',
-						'python Developer  ',
-						'Frontend Developer   ',
-						];
+                                // Create an array of typing text
+                                const typingTexts = [
+                                    'Data Analyst  ',
+                                    'Python Developer  ',
+                                    'Frontend Developer   ',
+                                ];
 
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
+                                // Create a function to display the typing animation for a given text
+                                function playTypingAnimation(text) {
+                                    // Loop through each character and add it to the element
+                                    for (let i = 0; i < text.length; i++) {
+                                        setTimeout(() => {
+                                            typingAnimationElement.textContent += text[i];
+                                        }, i * 200);
+                                    }
 
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
+                                    // Once the animation is complete, reset the text and start over
+                                    setTimeout(() => {
+                                        typingAnimationElement.textContent = '';
+                                        playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+                                    }, text.length * 200);
+                                }
 
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
+                                // Start the typing animation loop
+                                playTypingAnimation(typingTexts[0]);
+                            </script>
 
-						</script>
-
-						<br>
-						<br>
-			            <h2>Data Analyst</h2>
-						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-						<!-- <br> -->
-			            <p><a href="https://www.linkedin.com/in/arman88/" class="btn btn-primary py-3 px-4">LinkedIn</a> 
-							<a href="https://github.com/Arman1263" class="btn btn-white btn-outline-white py-3 px-4">GitHub</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-		</div>
-    </section>
+                            <br><br>
+                            <h2>Data Analyst</h2>
+                            <p>
+                                <a href="https://www.linkedin.com/in/arman88/" class="btn btn-primary py-3 px-4">LinkedIn</a> 
+                                <a href="https://github.com/Arman1263" class="btn btn-white btn-outline-white py-3 px-4">GitHub</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -213,7 +212,7 @@
 								<div class="row">
 									<div class="col-sm-6 col-md-5">
 									  <div class="about-img">
-										<img src="images/about-me.jpg" class="img-fluid rounded b-shadow-a" alt="">
+										<img src="images/coder.jpg" class="img-fluid rounded b-shadow-a" alt="">
 									  </div>
 									</div>
 									<!-- Details next to profile image -->
@@ -221,7 +220,7 @@
 									  <div class="about-info">
 										<p><span class="title-s">Name: </span> <span>Arman Shikalgar</span></p>
 										<p><span class="title-s">Job Role: </span> <span>Data and Database Analyst</span></p>
-										<!-- <p><span class="title-s">Experience: </span> <span>Fresher</span></p> -->
+										<p><span class="title-s">Experience: </span> <span>Fresher</span></p>
 										<p><span class="title-s">Address: </span> <span>Kolhapur, India</span></p>
 									  </div>
 									</div>
@@ -281,10 +280,10 @@
 								<ul class="about-info mt-4 px-md-0 px-2">
 									<li class="d-flex"><span>Profile:</span> <span>Data &amp; Database Analytics</span></li>
 									<li class="d-flex"><span>Domain:</span> <span>Artificial Intelligence and Data Science</span></li>
-									<li class="d-flex"><span>Education:</span> <span>B. Tech in AI&DS - Dr. J. J. Magdum College of Engineering</span></li>
+									<!-- <li class="d-flex"><span>Education:</span> <span>B. Tech in AI&DS - Dr. J. J. Magdum College of Engineering</span></li> -->
 									<li class="d-flex"><span>Language:</span> <span>Python, SQL, Javascript</span></li>
 									<li class="d-flex"><span>Databases and Tools:</span> <span>SQL, MongoDB, Power BI, Excel, Git &amp; GitHub</span></li>
-									<li class="d-flex"><span>Libraries:</span> <span> Pandas, NumPy, Matplotlib, Seaborn, Streamlit, Gradio </span></li>
+									<li class="d-flex"><span>Libraries:</span> <span> Pandas, NumPy, Matplotlib, Seaborn, Streamlit, </span></li>
 									<li class="d-flex"><span>Other Skills:</span> <span>Prompt Engineering, Huggingface Deployment</span></li>
 									<li class="d-flex"><span>Interest:</span> <span>Reading &amp; Journaling</span></li>
 									
