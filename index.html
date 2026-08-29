@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arman Shikalgar - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-papWf09...==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #121212;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 15px 0;
+            background: rgba(26, 26, 26, 0.98);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            position: absolute;
+            left: 20px;
+        }
+
+        .theme-toggle:hover {
+            background: #3a3a3a;
+            transform: scale(1.05);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            padding: 60px 70px;
+            background: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('static/images/Background/background.png');
+            background-size: auto 100%;
+            background-position: right center;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            z-index: 0;
+            transition: background-image 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            opacity: 0.7;
+            color: #888;
+            transition: color 0.3s ease;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: background 0.3s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            opacity: 0.7;
+            margin-bottom: 40px;
+            color: #aaa;
+            transition: color 0.3s ease;
+        }
+        .fade {
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 80px 0;
+            background: #121212;
+            transition: background 0.3s ease;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            background: transparent;
+            border: 2px solid #333;
+            color: #aaa;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            background: #fff;
+            color: #0a0a0a;
+            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .projects-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 20px 0;
+            margin: 0 -20px;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .projects-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .projects-wrapper {
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            min-width: min-content;
+        }
+
+        .project-card {
+            flex: 0 0 350px;
+            background: #1e1e1e;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #404040;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border-color: #444;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #404040 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: rgba(255,255,255,0.1);
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #0a0a0a;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .project-category {
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .project-description {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.7;
+            color: #aaa;
+            transition: color 0.3s ease;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: #1a1a1a;
+            transition: background 0.3s ease;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            color: #aaa;
+            transition: color 0.3s ease;
+        }
+
+.skills {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.skill-tag {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: #fff;
+    color: #0a0a0a;
+    border-color: #fff;
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 80px 0;
+    background: #0f0f0f;
+    transition: background 0.3s ease;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.skill-item {
+    background: #1e1e1e;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #404040;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    aspect-ratio: 1;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    border-color: #666;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.skill-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+}
+
+.skill-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ccc;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+/* Category colors */
+.skill-item.ai .skill-icon { color: #FF6F61; }      /* Generative AI - Red */
+.skill-item.ml .skill-icon { color: #6A5ACD; }      /* Machine Learning - Purple */
+.skill-item.da .skill-icon { color: #20B2AA; }      /* Data Analysis - Teal */
+
+.about-image {
+    background-image: url('static/images/Background/about-image.jpg');
+    background-size: cover;       /* makes image cover entire box */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+    width: 100%;                  /* full width of container */
+    height: 400px;                /* adjust height as needed */
+    border-radius: 15px;
+    border: 1px solid #505050;
+    overflow: hidden;             /* hides any overflow */
+}
+
+
+        
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background: #121212;
+            transition: background 0.3s ease;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: #1e1e1e;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #404040;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #444;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #2a2a2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            transition: all 0.3s ease;
+            border: 1px solid #404040;
+        }
+
+        .service-card:hover .service-icon {
+            background: #fff;
+        }
+
+        .service-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .service-description {
+            opacity: 0.7;
+            line-height: 1.6;
+            font-size: 14px;
+            color: #aaa;
+            transition: color 0.3s ease;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: #1a1a1a;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            font-size: 18px;
+            margin: 15px 0;
+            opacity: 0.8;
+            color: #aaa;
+            transition: color 0.3s ease;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 24px;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+            background: #fff;
+            color: #0a0a0a;
+            border-color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 30px 0;
+            text-align: center;
+            opacity: 0.6;
+            border-top: 1px solid #1a1a1a;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Light Mode Styles */
+        body.light-mode {
+            background: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        body.light-mode nav {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body.light-mode .theme-toggle {
+            background: #e0e0e0;
+            border-color: #d0d0d0;
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background: #d0d0d0;
+        }
+
+        body.light-mode .menu-toggle span {
+            background: #1a1a1a;
+        }
+
+        body.light-mode .nav-links a {
+            color: #666;
+        }
+
+        body.light-mode .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .nav-links a::after {
+            background: #1a1a1a;
+        }
+
+        body.light-mode .hero {
+            background: #ffffff;
+        }
+
+        body.light-mode .hero::before {
+            background-image: url('static/images/Background/bg_light.jpg');
+            opacity: 1;
+        }
+
+        body.light-mode .hero h2 {
+            color: #666;
+        }
+
+        body.light-mode .hero h1 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        body.light-mode .hero-subtitle {
+            color: #666;
+        }
+
+        body.light-mode .portfolio-section {
+            background: #f5f5f5;
+        }
+
+        body.light-mode .category-tab {
+            border-color: #d0d0d0;
+            color: #666;
+        }
+
+        body.light-mode .category-tab:hover,
+        body.light-mode .category-tab.active {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-mode .project-card {
+            background: #ffffff;
+            border-color: #e0e0e0;
+        }
+
+        body.light-mode .project-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: #d0d0d0;
+        }
+
+        body.light-mode .project-image {
+            background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+            color: rgba(0,0,0,0.1);
+        }
+
+        body.light-mode .project-title {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .project-category {
+            color: #666;
+        }
+
+        body.light-mode .project-description {
+            color: #666;
+        }
+
+        body.light-mode .about-section {
+            background: #ffffff;
+        }
+
+        body.light-mode .about-text h2 {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .about-text p {
+            color: #666;
+        }
+
+        body.light-mode .skill-tag {
+            background: #e0e0e0;
+            border-color: #d0d0d0;
+            color: #1a1a1a;
+        }
+
+        body.light-mode .skill-tag:hover {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        body.light-mode .skills-section {
+            background: #f0f0f0;
+        }
+
+        body.light-mode .skill-item {
+            background: #ffffff;
+            border-color: #e0e0e0;
+        }
+
+        body.light-mode .skill-item:hover {
+            border-color: #d0d0d0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        body.light-mode .skill-name {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .services-section {
+            background: #f5f5f5;
+        }
+
+        body.light-mode .service-card {
+            background: #ffffff;
+            border-color: #e0e0e0;
+        }
+
+        body.light-mode .service-card:hover {
+            border-color: #d0d0d0;
+        }
+
+        body.light-mode .service-icon {
+            background: #e0e0e0;
+            border-color: #d0d0d0;
+        }
+
+        body.light-mode .service-card:hover .service-icon {
+            background: #1a1a1a;
+        }
+
+        body.light-mode .service-title {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .service-description {
+            color: #666;
+        }
+
+        body.light-mode .contact-section {
+            background: #ffffff;
+        }
+
+        body.light-mode .section-title {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .contact-item {
+            color: #666;
+        }
+
+        body.light-mode .social-link {
+            background: #e0e0e0;
+            border-color: #d0d0d0;
+            color: #1a1a1a;
+        }
+
+        body.light-mode .social-link:hover {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        body.light-mode footer {
+            background: #ffffff;
+            border-top-color: #e0e0e0;
+            color: #1a1a1a;
+        }
+
+        body.light-mode #blogs {
+            background: #ffffff !important;
+        }
+
+        .blog-card {
+            flex: 0 0 350px;
+            background: #1e1e1e;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #404040;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border-color: #444;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #404040 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255,255,255,0.1);
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-info {
+            padding: 25px;
+        }
+
+        .blog-date {
+            color: #888;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .blog-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .blog-excerpt {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.7;
+            color: #aaa;
+            transition: color 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .blog-tag {
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            color: #ccc;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode .blog-card {
+            background: #ffffff;
+            border-color: #e0e0e0;
+        }
+
+        body.light-mode .blog-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: #d0d0d0;
+        }
+
+        body.light-mode .blog-image {
+            background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+            color: rgba(0,0,0,0.1);
+        }
+
+        body.light-mode .blog-title {
+            color: #1a1a1a;
+        }
+
+        body.light-mode .blog-date {
+            color: #666;
+        }
+
+        body.light-mode .blog-excerpt {
+            color: #666;
+        }
+
+        body.light-mode .blog-tag {
+            background: #e0e0e0;
+            border-color: #d0d0d0;
+            color: #1a1a1a;
+        }
+        
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                flex: 0 0 300px;
+            }
+
+            .category-tabs {
+                gap: 15px;
+            }
+
+            .category-tab {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 83px;
+                left: -100%;
+                width: 100%;
+                background: rgba(26, 26, 26, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                transition: left 0.3s ease;
+                border-bottom: 1px solid #404040;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                padding: 15px 20px;
+                border-bottom: 1px solid #2a2a2a;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 20px;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            body.light-mode .nav-links {
+                background: rgba(255, 255, 255, 0.98);
+                border-bottom-color: #e0e0e0;
+            }
+
+            body.light-mode .nav-links li {
+                border-bottom-color: #e0e0e0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#blogs" onclick="closeMenu()">Blogs</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>Hello I'm</h2>
+        <h1>Arman Shikalgar</h1>
+        <p class="hero-subtitle">
+          <span id="animated-text">Data Analyst</span>
+        </p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            
+            <div class="category-tabs">
+                <button class="category-tab active" onclick="filterProjects('all')">All Projects</button>
+                <button class="category-tab" onclick="filterProjects('Machine Learning')">Machine Learning</button>
+                <button class="category-tab" onclick="filterProjects('Python Project')">Python Project</button>
+                <button class="category-tab" onclick="filterProjects('Data Analysis')">Data Analysis</button>
+                <button class="category-tab" onclick="filterProjects('Other')">Other</button>
+            </div>
+
+            <div class="projects-container" id="projectsContainer">
+                <div class="projects-wrapper" id="projectsWrapper">
+                    <!-- Projects will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image"></div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm a passionate AI/ML Engineer who turning data into actionable insights and driving strategic decisions. I specialize in data analysis, python s/w development, and leveraging AI/ML to solve complex problems.</p>
+                    <p>My approach combines analytical thinking with AI-driven solutions to deliver results that not only optimize processes but also create meaningful business impact.</p>
+                   <div class="skills">
+    <span class="skill-tag">Python Developer</span>
+    <span class="skill-tag">Machine Learning Engineer</span>
+    <span class="skill-tag">Data Analyst</span>
+    <span class="skill-tag">AI Engineer</span>
+</div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<section class="skills-section" id="skills">
+    <div class="container">
+        <h2 class="section-title">Skills & Tools</h2>
+        <div class="skills-grid">
+
+            <!-- Shuffled skills -->
+            <div class="skill-item ml"><i class="fa-brands fa-python skill-icon"></i><div class="skill-name">Python</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-js skill-icon"></i><div class="skill-name">JavaScript</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-html5 skill-icon"></i><div class="skill-name">HTML</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-css3-alt skill-icon"></i><div class="skill-name">CSS</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-database skill-icon"></i><div class="skill-name">SQL</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-brain skill-icon"></i><div class="skill-name">Machine Learning</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-python skill-icon"></i><div class="skill-name">Django</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-python skill-icon"></i><div class="skill-name">Django Rest Framework</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-bolt skill-icon"></i><div class="skill-name">FastAPI</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-leaf skill-icon"></i><div class="skill-name">MongoDB</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-cloud skill-icon"></i><div class="skill-name">MongoDB Atlas</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-database skill-icon"></i><div class="skill-name">MySQL</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-database skill-icon"></i><div class="skill-name">Microsoft SQL</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-database skill-icon"></i><div class="skill-name">PostgreSQL</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-chart-column skill-icon"></i><div class="skill-name">Power BI</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-file-excel skill-icon"></i><div class="skill-name">Excel</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-docker skill-icon"></i><div class="skill-name">Docker</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-git-alt skill-icon"></i><div class="skill-name">Git</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-github skill-icon"></i><div class="skill-name">GitHub</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-github skill-icon"></i><div class="skill-name">GitHub Actions</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-face-smile skill-icon"></i><div class="skill-name">HuggingFace</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-paper-plane skill-icon"></i><div class="skill-name">Postman</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-figma skill-icon"></i><div class="skill-name">Figma</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-cloud-arrow-up skill-icon"></i><div class="skill-name">Render</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-robot skill-icon"></i><div class="skill-name">Ollama</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-route skill-icon"></i><div class="skill-name">OpenRouter API</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-gears skill-icon"></i><div class="skill-name">Scikit-learn</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-fire skill-icon"></i><div class="skill-name">Streamlit</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-link skill-icon"></i><div class="skill-name">LangChain</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-diagram-project skill-icon"></i><div class="skill-name">LangGraph</div></div>
+            <div class="skill-item ml"><i class="fa-brands fa-python skill-icon"></i><div class="skill-name">PyMongo</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-table skill-icon"></i><div class="skill-name">Pandas</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-square-root-variable skill-icon"></i><div class="skill-name">NumPy</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-chart-line skill-icon"></i><div class="skill-name">Matplotlib</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-chart-area skill-icon"></i><div class="skill-name">Seaborn</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-percent skill-icon"></i><div class="skill-name">Statistics</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-magnifying-glass-chart skill-icon"></i><div class="skill-name">Exploratory Data Analysis</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-sliders skill-icon"></i><div class="skill-name">Feature Engineering</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-broom skill-icon"></i><div class="skill-name">Data Cleaning</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-chart-pie skill-icon"></i><div class="skill-name">Data Visualization</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-cubes skill-icon"></i><div class="skill-name">Model Building</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-clipboard-check skill-icon"></i><div class="skill-name">Model Evaluation</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-screwdriver-wrench skill-icon"></i><div class="skill-name">Fine-Tuning</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-comments skill-icon"></i><div class="skill-name">ChatBots</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-server skill-icon"></i><div class="skill-name">REST API Management</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-note-sticky skill-icon"></i><div class="skill-name">Notion</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-terminal skill-icon"></i><div class="skill-name">Prompt Engineering</div></div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+           <div class="services-grid">
+    <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3 class="service-title">Artificial intelligence (AI)</h3>
+        <p class="service-description">Building intelligent and interactive web experiences powered by Machine Learning and AI technologies.</p>
+    </div>
+
+    <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3 class="service-title">Machine Learning Solutions</h3>
+        <p class="service-description">Designing predictive and adaptive models that turn complex data into actionable business intelligence.</p>
+    </div>
+
+    <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Data Analysis</h3>
+        <p class="service-description">Extracting insights and visualizing patterns from structured and unstructured data for smarter decision-making.</p>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section class="portfolio-section" id="blogs" style="background: #1a1a1a;">
+        <div class="container">
+            <h2 class="section-title">Medium Blogs</h2>
+            
+            <div class="projects-container" id="blogsContainer">
+                <div class="projects-wrapper" id="blogsWrapper">
+                    <!-- Blogs will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-info">
+                <p class="contact-item">📧 armanshikalgar01@gmail.com</p>
+                <p class="contact-item">📍 Kolhapur, Maharashtra, IND</p>
+            </div>
+           <div class="social-links">
+    <a href="https://github.com/Arman1263" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.twitter.com/armanlxl" class="social-link" target="_blank"><i class="fa-solid fa-x"></i></a>
+    <a href="https://www.linkedin.com/in/arman88" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://medium.com/@armanshikalgar" class="social-link" target="_blank"><i class="fab fa-medium"></i></a>
+    <a href="https://www.kaggle.com/mrarmans" class="social-link" target="_blank"><i class="fab fa-kaggle"></i></a>
+    <a href="https://discord.com/channels/arman1263a" class="social-link" target="_blank"><i class="fab fa-discord"></i></a>
+</div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Arman Shikalgar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const roles = [
+            "Data Analyst",
+            "Python Developer",
+            "ML Engineer",
+            "Lifelong Learner"
+          ];
+        
+          let index = 0;
+          const textElement = document.getElementById("animated-text");
+        
+          setInterval(() => {
+            textElement.classList.add("fade");
+        
+            setTimeout(() => {
+              index = (index + 1) % roles.length;
+              textElement.textContent = roles[index];
+              textElement.classList.remove("fade");
+            }, 500);
+        
+          }, 2000);
+
+        
+        const projects = [
+  
+  { id: 1, title: "Customer Behavior Data Analysis", category: "Data Analysis", description: "Customer behavior understanding through data and Power BI dashboard.", link: "https://github.com/Arman1263/Customer-Behavior-Data-Analytics-", image: "static/images/Projects/data_analysis/Customer-Behavior-Data-Analytics.png"},
+  { id: 2, title: "UPI Transactions Data Analysis", category: "Data Analysis", description: "A Power BI dashboard exploring a simulated dataset of UPI transactions.", link: "https://github.com/Arman1263/UPI-Transactions-Power-BI-Dashboard", image: "static/images/Projects/data_analysis/UPI-Transactions-Data-Analysis.png"},
+  { id: 3, title: "Weather Forecasting PowerBI Report", category: "Data Analysis", description: "A Power BI dashboard using live Weather API data to show current conditions, 7-day forecasts.", link: "https://github.com/Arman1263/Weather-Forecasting-Report-PowerBI", image: "static/images/Projects/data_analysis/Weather-Forecasting-Report.png"},
+  { id: 4, title: "Sales Report Data Analysis", category: "Data Analysis", description: "A Power BI dashboard analyzing sales performance across regions and product categories.", link: "https://github.com/Arman1263/Sales-Report-Analysis-Dashboard-PowerBI", image: "static/images/Projects/data_analysis/Sales-Report-Data-Analysis.png"},
+  { id: 5, title: "Netflix Watchers Data Analysis", category: "Data Analysis", description: "A Power BI dashboard analyzing Netflix movies and TV shows (2008–2021) — totals, ratings, genres, and trends.", link: "https://github.com/Arman1263/Netflix-Dashboard-using-Power-BI", image: "static/images/Projects/data_analysis/Netflix-Watchers-Data-Analysis.png"},
+
+  
+  { id: 6, title: "CustomerIQ - Unsupervised ML Learning", category: "Machine Learning", description: "An end-to-end platform using unsupervised ML to segment customers, detect anomalies, and generate actionable insights.", link: "https://github.com/Arman1263/CustomerIQ", image: "static/images/Projects/machine_learning/CustomerIQ.png"},
+  { id: 7, title: "AI Stock Screener - Supervised ML Learning", category: "Machine Learning", description: "A real-time NSE stock screener using Angel One SmartAPI, SMMA crossover detection, and a trained ML model to generate ACCEPT/AVOID trade signals on a live Streamlit dashboard.", link: "https://github.com/Arman1263/ai-stock-screener", image: "static/images/Projects/machine_learning/ai-stock-screener.png"},
+  { id: 8, title: "Wine Quality Prediction - KNN", category: "Machine Learning", description: "A machine learning web application that predicts the quality of red wine based on its physicochemical properties using the K-Nearest Neighbors (KNN) classification algorithm.", link: "https://github.com/Arman1263/Wine-Quality-Prediction-KNN", image: "static/images/Projects/machine_learning/Wine-Quality-Prediction.png"},
+  { id: 9, title: "Diabetes Prediction - Logistic Regression", category: "Machine Learning", description: "A machine learning web app using Logistic Regression to predict diabetes risk from medical parameters, deployed with Streamlit.", link: "https://github.com/Arman1263/Diabetes-Prediction-Logistic-Regression", image: "static/images/Projects/machine_learning/Diabetes-Prediction-Logistic-Regression.png"},
+  { id: 10, title: "Heart Disease Prediction - KNN", category: "Machine Learning", description: "A machine learning project comparing multiple classifiers to predict heart disease, with KNN delivering the highest accuracy.", link: "https://github.com/Arman1263/Heart-Disease-Prediction", image: "static/images/Projects/machine_learning/Heart-Disease-Prediction.png"},
+  { id: 11, title: "Laptop Price Prediction - Linear Regression", category: "Machine Learning", description: "Predict laptop prices based on their specifications using a Linear Regression Machine Learning model built with Scikit-learn and deployed with Streamlit.", link: "https://github.com/Arman1263/Laptop-Price-Prediction", image: "static/images/Projects/machine_learning/Laptop-Price-Prediction.png"},
+  { id: 12, title: "Predicting Student Scores - Linear Regression", category: "Machine Learning", description: "A machine learning project that predicts a student's expected score based on the number of hours studied.", link: "https://github.com/Arman1263/Predicting-Student-Scores-using-Supervised-ML-Sparks-Foundation-", image: "static/images/Projects/machine_learning/Student-Marks-Prediction.png"},
+
+
+  { id: 13, title: "PDF Chat Bot", category: "Python Project", description: "An AI-powered chatbot that allows users to upload PDF documents and ask natural language questions to retrieve contextual answers — built using RAG architecture.", link: "https://github.com/Arman1263/PDF-Chat-Bot", image: "static/images/Projects/python/PDF-Chat-Bot.png"},
+  { id: 14, title: "AI Voice Telephony Agent", category: "Python Project", description: "A real-time AI voice agent using Python, VideoSDK, Twilio, and Gemini to answer and hold live phone conversations.", link: "https://github.com/Arman1263/AI-Voice-Telephony-Agent", image: "static/images/Projects/python/AI-Voice-Telephony-Agent.png"},
+  { id: 15, title: "Hostel Management System Django Rest Framework", category: "Python Project", description: "A role-based Hostel Management backend built with Django REST Framework, JWT auth, and a React Bootstrap dashboard.", link: "https://github.com/Arman1263/Hostel-Management-System-Django-Rest-Framework", image: "static/images/Projects/python/Hostel-Management-System-DRF.png"},
+  { id: 16, title: "Code Assistant powered by Deepseek", category: "Python Project", description: "A local AI coding assistant built with Streamlit and Ollama, using DeepSeek-R1 for debugging, documentation, and solution design.", link: "https://github.com/Arman1263/code-assistant-deepseek", image: "static/images/Projects/python/Code-Assistant-Deepseek.png"},
+  { id: 17, title: "Movies Manager - Mongo DB Atlas & PyMongo", category: "Python Project", description: "A movie management app using Python, Streamlit, and MongoDB Atlas for full CRUD on cloud-stored records.", link: "https://github.com/Arman1263/Movies-Manager", image: "static/images/Projects/python/Movies-Manager.jpg"},
+
+
+  { id: 18, title: " SQL Query Explainer — VS Code Extension", category: "Other", description: "AI-powered VS Code extension that converts selected SQL queries into clear, plain-English explanations directly inside your editor.", link: "https://github.com/Arman1263/SQL-Query-Explainer-VSCode-Extension", image: "static/images/Projects/other/SQL-Query-Explainer-VSCode-Extension.png"},
+
+        ];
+
+
+
+
+       const blogs = [
+ {  
+    id: 1,
+    title: "The Boys (Show) as Machine Learning Algorithms: A Practical Guide to 15 Core ML Concepts",
+    date: "Aug 29, 2026",
+    excerpt: "Learn machine learning and deep learning concepts through a fun analogy inspired by The Boys, where superpowers represent algorithms, making complex ideas easier to understand with relatable real-world examples.",
+    tags: ["Machine Learning", "AI Basics", "Data Science", "Learning"],
+    icon: "📊",
+    link: "https://medium.com/@armanshikalgar/the-boys-as-machine-learning-algorithms-a-practical-guide-to-15-core-ml-concepts-398eb25a8934",
+    image: "static/images/Blogs/theboys.png"
+  }, 
+ {
+    id: 2,
+    title: "I Replaced My Paid LLM API With NVIDIA Nemotron — Here’s How to Actually Use It in a Project",
+    date: "Aug 29, 2026",
+    excerpt: "A hands-on guide to using NVIDIA's open-weight Nemotron models in real projects — from a free hosted API call to self-hosting with vLLM — built around a FastAPI support-ticket triage service instead of another toy chatbot demo.",
+    tags: ["Nvdia", "API", "AI", "Nemotron", "AI Model"],
+    icon: "📊",
+    link: "https://medium.com/@armanshikalgar/i-replaced-my-paid-llm-api-with-nvidia-nemotron-heres-how-to-actually-use-it-in-a-project-08ad95a7359d",
+    image: "static/images/Blogs/nvdia_nemotron.png"
+  }, 
+  {
+    id: 3,
+    title: "How Much Statistics Do You Actually Need for Machine Learning? A Practical Breakdown",
+    date: "Aug 29, 2026",
+    excerpt: "A practical breakdown of how much statistics you actually need for machine learning, split into what's non-negotiable, what separates a practitioner from a tutorial-follower, and what to learn only when a project demands it.",
+    tags: ["Statistics", "Machine Learning", "AI", "Maths", "Learning"],
+    icon: "📊",
+    link: "https://medium.com/@armanshikalgar/how-much-statistics-do-you-actually-need-for-machine-learning-a-practical-breakdown-b33cc181d43f?sharedUserId=armanshikalgar",
+    image: "static/images/Blogs/Stats.png"
+  },
+
+];
+
+
+        let currentCategory = 'all';
+
+        function renderProjects(category = 'all') {
+            const wrapper = document.getElementById('projectsWrapper');
+            const filteredProjects = category === 'all' 
+                ? projects 
+                : projects.filter(p => p.category === category);
+            
+            wrapper.innerHTML = filteredProjects.map(project => `
+                <div class="project-card" onclick="window.open('${project.link}', '_blank')">
+                    <div class="project-image">
+                        <img src="${project.image}" alt="${project.title}">
+                    </div>
+                    <div class="project-info">
+                        <p class="project-category">${project.category.toUpperCase()}</p>
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getProjectEmoji(category) {
+            const emojis = {
+    "Generative AI": "🤖",
+    "Agentic AI": "🚀",
+    "Machine Learning": "🧠",
+    "Data Analysis": "📊"
+};
+            return emojis[category] || '✨';
+        }
+
+        function filterProjects(category) {
+            currentCategory = category;
+            
+            // Update active tab
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Render filtered projects
+            renderProjects(category);
+            
+            // Reset scroll position
+            document.getElementById('projectsContainer').scrollLeft = 0;
+        }
+
+        // Initialize projects on page load
+        renderProjects();
+        renderBlogs();
+
+        function renderBlogs() {
+            const wrapper = document.getElementById('blogsWrapper');
+            
+            wrapper.innerHTML = blogs.map(blog => `
+                <div class="blog-card" onclick="window.open('${blog.link}', '_blank')">
+                    <div class="blog-image">
+                        <img src="${blog.image}" alt="${blog.title}">
+                    </div>
+                    <div class="blog-info">
+                        <p class="blog-date">${blog.date}</p>
+                        <h3 class="blog-title">${blog.title}</h3>
+                        <p class="blog-excerpt">${blog.excerpt}</p>
+                        <div class="blog-tags">
+                            ${blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Theme toggle function
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.getElementById('themeToggle');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌙';
+            }
+        }
+
+        // Navigation functions
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
