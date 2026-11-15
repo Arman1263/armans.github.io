@@ -1073,6 +1073,8 @@
             <div class="skill-item ml"><i class="fa-solid fa-database skill-icon"></i><div class="skill-name">Microsoft SQL</div></div>
             <div class="skill-item ml"><i class="fa-solid fa-database skill-icon"></i><div class="skill-name">PostgreSQL</div></div>
             <div class="skill-item ml"><i class="fa-solid fa-chart-column skill-icon"></i><div class="skill-name">Power BI</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-chart-pie skill-icon"></i><div class="skill-name">Tableau</div></div>
+            <div class="skill-item ml"><i class="fa-solid fa-diagram-project skill-icon"></i><div class="skill-name">Tableau Prep Builder</div></div>
             <div class="skill-item ml"><i class="fa-solid fa-file-excel skill-icon"></i><div class="skill-name">Excel</div></div>
             <div class="skill-item ml"><i class="fa-brands fa-docker skill-icon"></i><div class="skill-name">Docker</div></div>
             <div class="skill-item ml"><i class="fa-brands fa-git-alt skill-icon"></i><div class="skill-name">Git</div></div>
@@ -1202,36 +1204,43 @@
         
         const projects = [
   
-  { id: 1, title: "Customer Behavior Data Analysis", category: "Data Analysis", description: "Customer behavior understanding through data and Power BI dashboard.", link: "https://github.com/Arman1263/Customer-Behavior-Data-Analytics-", image: "static/images/Projects/data_analysis/Customer-Behavior-Data-Analytics.png"},
-  { id: 2, title: "UPI Transactions Data Analysis", category: "Data Analysis", description: "A Power BI dashboard exploring a simulated dataset of UPI transactions.", link: "https://github.com/Arman1263/UPI-Transactions-Power-BI-Dashboard", image: "static/images/Projects/data_analysis/UPI-Transactions-Data-Analysis.png"},
-  { id: 3, title: "Weather Forecasting PowerBI Report", category: "Data Analysis", description: "A Power BI dashboard using live Weather API data to show current conditions, 7-day forecasts.", link: "https://github.com/Arman1263/Weather-Forecasting-Report-PowerBI", image: "static/images/Projects/data_analysis/Weather-Forecasting-Report.png"},
-  { id: 4, title: "Sales Report Data Analysis", category: "Data Analysis", description: "A Power BI dashboard analyzing sales performance across regions and product categories.", link: "https://github.com/Arman1263/Sales-Report-Analysis-Dashboard-PowerBI", image: "static/images/Projects/data_analysis/Sales-Report-Data-Analysis.png"},
-  { id: 5, title: "Netflix Watchers Data Analysis", category: "Data Analysis", description: "A Power BI dashboard analyzing Netflix movies and TV shows (2008–2021) — totals, ratings, genres, and trends.", link: "https://github.com/Arman1263/Netflix-Dashboard-using-Power-BI", image: "static/images/Projects/data_analysis/Netflix-Watchers-Data-Analysis.png"},
+  { id: 1, title: "Blinkit Sales Analysis Power BI Dashboard", category: "Data Analysis", description: "Power BI dashboard analysing Blinkit grocery sales across 8,523 records and 10 outlets, by item type, fat content, and outlet size, location, and type.", link: "https://github.com/Arman1263/Blinkit-Sales-Analysis-Dashboard-Power-BI-", image: "static/images/Projects/data_analysis/Blinkit-Sales-Dashboard-PowerBI.png"},
+  { id: 2, title: "Customer Behavior Data Analysis Power BI Dashboard", category: "Data Analysis", description: "Customer behavior understanding through data and Power BI dashboard.", link: "https://github.com/Arman1263/Customer-Behavior-Data-Analytics-", image: "static/images/Projects/data_analysis/Customer-Behavior-Data-Analytics.png"},
+  { id: 3, title: "UPI Transactions Data Analysis Power BI Dashboard", category: "Data Analysis", description: "A Power BI dashboard exploring a simulated dataset of UPI transactions.", link: "https://github.com/Arman1263/UPI-Transactions-Power-BI-Dashboard", image: "static/images/Projects/data_analysis/UPI-Transactions-Data-Analysis.png"},
+  { id: 4, title: "Weather Forecasting PowerBI Report", category: "Data Analysis", description: "A Power BI dashboard using live Weather API data to show current conditions, 7-day forecasts.", link: "https://github.com/Arman1263/Weather-Forecasting-Report-PowerBI", image: "static/images/Projects/data_analysis/Weather-Forecasting-Report.png"},
+  { id: 5, title: "Sales Report Data Analysis Power BI Dashboard", category: "Data Analysis", description: "A Power BI dashboard analyzing sales performance across regions and product categories.", link: "https://github.com/Arman1263/Sales-Report-Analysis-Dashboard-PowerBI", image: "static/images/Projects/data_analysis/Sales-Report-Data-Analysis.png"},
+  { id: 6, title: "Netflix Watchers Data Analysis Power BI Dashboard", category: "Data Analysis", description: "A Power BI dashboard analyzing Netflix movies and TV shows (2008–2021) — totals, ratings, genres, and trends.", link: "https://github.com/Arman1263/Netflix-Dashboard-using-Power-BI", image: "static/images/Projects/data_analysis/Netflix-Watchers-Data-Analysis.png"},
+  { id: 7, title: "Insurance Data Analytics Power BI Dashboard", category: "Data Analysis", description: "An interactive Power BI dashboard designed to analyze insurance premiums, coverage amounts, claims, policy statuses, and customer demographics.", link: "https://github.com/Arman1263/Insurance-Data-Analytics-PowerBI-Dashboard", image: "static/images/Projects/data_analysis/Insurance-Data-Analysis-PowerBI.png"},
+  { id: 8, title: "UPI Transactions Analysis Tableau Dashboard", category: "Data Analysis", description: "The UPI Transactions Analysis Dashboard is built using Tableau to analyze UPI transaction activity across age groups, cities, payment methods, and merchants.", link: "https://github.com/Arman1263/UPI-Transactions-Analysis-Tableau-Dashboard", image: "static/images/Projects/data_analysis/UPI-Transactions-Data-Analysis-Tableau.png"},
+  { id: 9, title: "Sales Analysis Tableau Dashboard", category: "Data Analysis", description: "This project is a Sales Analysis Dashboard built using Tableau to analyze sales performance, profitability, regional distribution, and order trends using the Sample Superstore Sales dataset.", link: "https://github.com/Arman1263/Sales-Analysis-Tableau-Dashboard", image: "static/images/Projects/data_analysis/Sales-Analysis-Tableau-Dashboard.png"},
+  { id: 10, title: "Retail Sales Analytics Tableau Dashboard", category: "Data Analysis", description: "An end-to-end Retail Sales Data Analytics project built using Tableau Prep Builder and Tableau Public to clean, analyze, and visualize retail sales data through an interactive dashboard.", link: "https://github.com/Arman1263/Retail-Sales-Analytics-Tableau-Dashboard", image: "static/images/Projects/data_analysis/Retail-Sales-Analytics-Tableau-Dashboard.png"},
+  { id: 11, title: "Student Depression Analysis | SQL Server + Tableau", category: "Data Analysis", description: "An exploratory data analysis project using SQL Server and Tableau Public to examine how academic pressure, sleep, study hours, and financial stress relate to student depression.", link: "https://github.com/Arman1263/Student-Depression-Analysis-", image: "static/images/Projects/data_analysis/Student-Depression-Analysis-Tableau.png"},
 
   
-  { id: 6, title: "CustomerIQ - Unsupervised ML Learning", category: "Machine Learning", description: "An end-to-end platform using unsupervised ML to segment customers, detect anomalies, and generate actionable insights.", link: "https://github.com/Arman1263/CustomerIQ", image: "static/images/Projects/machine_learning/CustomerIQ.png"},
-  { id: 7, title: "AI Stock Screener - Supervised ML Learning", category: "Machine Learning", description: "A real-time NSE stock screener using Angel One SmartAPI, SMMA crossover detection, and a trained ML model to generate ACCEPT/AVOID trade signals on a live Streamlit dashboard.", link: "https://github.com/Arman1263/ai-stock-screener", image: "static/images/Projects/machine_learning/ai-stock-screener.png"},
-  { id: 8, title: "Wine Quality Prediction - KNN", category: "Machine Learning", description: "A machine learning web application that predicts the quality of red wine based on its physicochemical properties using the K-Nearest Neighbors (KNN) classification algorithm.", link: "https://github.com/Arman1263/Wine-Quality-Prediction-KNN", image: "static/images/Projects/machine_learning/Wine-Quality-Prediction.png"},
-  { id: 9, title: "Diabetes Prediction - Logistic Regression", category: "Machine Learning", description: "A machine learning web app using Logistic Regression to predict diabetes risk from medical parameters, deployed with Streamlit.", link: "https://github.com/Arman1263/Diabetes-Prediction-Logistic-Regression", image: "static/images/Projects/machine_learning/Diabetes-Prediction-Logistic-Regression.png"},
-  { id: 10, title: "Heart Disease Prediction - KNN", category: "Machine Learning", description: "A machine learning project comparing multiple classifiers to predict heart disease, with KNN delivering the highest accuracy.", link: "https://github.com/Arman1263/Heart-Disease-Prediction", image: "static/images/Projects/machine_learning/Heart-Disease-Prediction.png"},
-  { id: 11, title: "Laptop Price Prediction - Linear Regression", category: "Machine Learning", description: "Predict laptop prices based on their specifications using a Linear Regression Machine Learning model built with Scikit-learn and deployed with Streamlit.", link: "https://github.com/Arman1263/Laptop-Price-Prediction", image: "static/images/Projects/machine_learning/Laptop-Price-Prediction.png"},
-  { id: 12, title: "Predicting Student Scores - Linear Regression", category: "Machine Learning", description: "A machine learning project that predicts a student's expected score based on the number of hours studied.", link: "https://github.com/Arman1263/Predicting-Student-Scores-using-Supervised-ML-Sparks-Foundation-", image: "static/images/Projects/machine_learning/Student-Marks-Prediction.png"},
+  { id: 12, title: "CustomerIQ - Unsupervised ML Learning", category: "Machine Learning", description: "An end-to-end platform using unsupervised ML to segment customers, detect anomalies, and generate actionable insights.", link: "https://github.com/Arman1263/CustomerIQ", image: "static/images/Projects/machine_learning/CustomerIQ.png"},
+  { id: 13, title: "AI Stock Screener - Supervised ML Learning", category: "Machine Learning", description: "A real-time NSE stock screener using Angel One SmartAPI, SMMA crossover detection, and a trained ML model to generate ACCEPT/AVOID trade signals on a live Streamlit dashboard.", link: "https://github.com/Arman1263/ai-stock-screener", image: "static/images/Projects/machine_learning/ai-stock-screener.png"},
+  { id: 14, title: "Wine Quality Prediction - KNN", category: "Machine Learning", description: "A machine learning web application that predicts the quality of red wine based on its physicochemical properties using the K-Nearest Neighbors (KNN) classification algorithm.", link: "https://github.com/Arman1263/Wine-Quality-Prediction-KNN", image: "static/images/Projects/machine_learning/Wine-Quality-Prediction.png"},
+  { id: 15, title: "Diabetes Prediction - Logistic Regression", category: "Machine Learning", description: "A machine learning web app using Logistic Regression to predict diabetes risk from medical parameters, deployed with Streamlit.", link: "https://github.com/Arman1263/Diabetes-Prediction-Logistic-Regression", image: "static/images/Projects/machine_learning/Diabetes-Prediction-Logistic-Regression.png"},
+  { id: 16, title: "Heart Disease Prediction - KNN", category: "Machine Learning", description: "A machine learning project comparing multiple classifiers to predict heart disease, with KNN delivering the highest accuracy.", link: "https://github.com/Arman1263/Heart-Disease-Prediction", image: "static/images/Projects/machine_learning/Heart-Disease-Prediction.png"},
+  { id: 17, title: "Laptop Price Prediction - Linear Regression", category: "Machine Learning", description: "Predict laptop prices based on their specifications using a Linear Regression Machine Learning model built with Scikit-learn and deployed with Streamlit.", link: "https://github.com/Arman1263/Laptop-Price-Prediction", image: "static/images/Projects/machine_learning/Laptop-Price-Prediction.png"},
+  { id: 18, title: "Predicting Student Scores - Linear Regression", category: "Machine Learning", description: "A machine learning project that predicts a student's expected score based on the number of hours studied.", link: "https://github.com/Arman1263/Predicting-Student-Scores-using-Supervised-ML-Sparks-Foundation-", image: "static/images/Projects/machine_learning/Student-Marks-Prediction.png"},
 
 
-  { id: 13, title: "PDF Chat Bot", category: "Python Project", description: "An AI-powered chatbot that allows users to upload PDF documents and ask natural language questions to retrieve contextual answers — built using RAG architecture.", link: "https://github.com/Arman1263/PDF-Chat-Bot", image: "static/images/Projects/python/PDF-Chat-Bot.png"},
-  { id: 14, title: "AI Voice Telephony Agent", category: "Python Project", description: "A real-time AI voice agent using Python, VideoSDK, Twilio, and Gemini to answer and hold live phone conversations.", link: "https://github.com/Arman1263/AI-Voice-Telephony-Agent", image: "static/images/Projects/python/AI-Voice-Telephony-Agent.png"},
-  { id: 15, title: "Hostel Management System Django Rest Framework", category: "Python Project", description: "A role-based Hostel Management backend built with Django REST Framework, JWT auth, and a React Bootstrap dashboard.", link: "https://github.com/Arman1263/Hostel-Management-System-Django-Rest-Framework", image: "static/images/Projects/python/Hostel-Management-System-DRF.png"},
-  { id: 16, title: "Code Assistant powered by Deepseek", category: "Python Project", description: "A local AI coding assistant built with Streamlit and Ollama, using DeepSeek-R1 for debugging, documentation, and solution design.", link: "https://github.com/Arman1263/code-assistant-deepseek", image: "static/images/Projects/python/Code-Assistant-Deepseek.png"},
-  { id: 17, title: "Movies Manager - Mongo DB Atlas & PyMongo", category: "Python Project", description: "A movie management app using Python, Streamlit, and MongoDB Atlas for full CRUD on cloud-stored records.", link: "https://github.com/Arman1263/Movies-Manager", image: "static/images/Projects/python/Movies-Manager.jpg"},
+  { id: 19, title: "PDF Chat Bot", category: "Python Project", description: "An AI-powered chatbot that allows users to upload PDF documents and ask natural language questions to retrieve contextual answers — built using RAG architecture.", link: "https://github.com/Arman1263/PDF-Chat-Bot", image: "static/images/Projects/python/PDF-Chat-Bot.png"},
+  { id: 20, title: "AI Voice Telephony Agent", category: "Python Project", description: "A real-time AI voice agent using Python, VideoSDK, Twilio, and Gemini to answer and hold live phone conversations.", link: "https://github.com/Arman1263/AI-Voice-Telephony-Agent", image: "static/images/Projects/python/AI-Voice-Telephony-Agent.png"},
+  { id: 21, title: "Hostel Management System Django Rest Framework", category: "Python Project", description: "A role-based Hostel Management backend built with Django REST Framework, JWT auth, and a React Bootstrap dashboard.", link: "https://github.com/Arman1263/Hostel-Management-System-Django-Rest-Framework", image: "static/images/Projects/python/Hostel-Management-System-DRF.png"},
+  { id: 22, title: "Code Assistant powered by Deepseek", category: "Python Project", description: "A local AI coding assistant built with Streamlit and Ollama, using DeepSeek-R1 for debugging, documentation, and solution design.", link: "https://github.com/Arman1263/code-assistant-deepseek", image: "static/images/Projects/python/Code-Assistant-Deepseek.png"},
+  { id: 23, title: "Movies Manager - Mongo DB Atlas & PyMongo", category: "Python Project", description: "A movie management app using Python, Streamlit, and MongoDB Atlas for full CRUD on cloud-stored records.", link: "https://github.com/Arman1263/Movies-Manager", image: "static/images/Projects/python/Movies-Manager.jpg"},
   
-  { id: 18, title: "Gmail Manager AI Agent", category: "n8n - Automation", description: "An AI-powered Gmail automation agent that understands, organizes, and manages incoming emails automatically.", link: "https://github.com/Arman1263/gmail-ai-manager-n8n-agent", image: "static/images/Projects/n8n/gmail_automation_agent.png"},
-  { id: 19, title: "Weather Update AI Agent", category: "n8n - Automation", description: "An AI weather assistant built with n8n, Gemini, and Open-Meteo, delivering natural-language forecasts via Telegram.", link: "https://github.com/Arman1263/Weather-Updates-AI-Agent-N8N", image: "static/images/Projects/n8n/weather_update_agent.png"},
-  { id: 20, title: "Restaurant AI Automation Agent ", category: "n8n - Automation", description: "An AI food-ordering bot for Shikalgar's Restaurant, built with n8n, Telegram, and Gemini — handling menu browsing, live inventory, and orders with persistent memory.", link: "https://github.com/Arman1263/Shikalgars-Restro-N8N-Automation", image: "static/images/Projects/n8n/restro_agent.png"},
+  { id: 24, title: "Gmail Manager AI Agent", category: "n8n - Automation", description: "An AI-powered Gmail automation agent that understands, organizes, and manages incoming emails automatically.", link: "https://github.com/Arman1263/gmail-ai-manager-n8n-agent", image: "static/images/Projects/n8n/gmail_automation_agent.png"},
+  { id: 25, title: "Weather Update AI Agent", category: "n8n - Automation", description: "An AI weather assistant built with n8n, Gemini, and Open-Meteo, delivering natural-language forecasts via Telegram.", link: "https://github.com/Arman1263/Weather-Updates-AI-Agent-N8N", image: "static/images/Projects/n8n/weather_update_agent.png"},
+  { id: 26, title: "Restaurant AI Automation Agent ", category: "n8n - Automation", description: "An AI food-ordering bot for Shikalgar's Restaurant, built with n8n, Telegram, and Gemini — handling menu browsing, live inventory, and orders with persistent memory.", link: "https://github.com/Arman1263/Shikalgars-Restro-N8N-Automation", image: "static/images/Projects/n8n/restro_agent.png"},
 
 
-  { id: 21, title: " SQL Query Explainer — VS Code Extension", category: "Other", description: "AI-powered VS Code extension that converts selected SQL queries into clear, plain-English explanations directly inside your editor.", link: "https://github.com/Arman1263/SQL-Query-Explainer-VSCode-Extension", image: "static/images/Projects/other/SQL-Query-Explainer-VSCode-Extension.png"},
+  { id: 27, title: " SQL Query Explainer — VS Code Extension", category: "Other", description: "AI-powered VS Code extension that converts selected SQL queries into clear, plain-English explanations directly inside your editor.", link: "https://github.com/Arman1263/SQL-Query-Explainer-VSCode-Extension", image: "static/images/Projects/other/SQL-Query-Explainer-VSCode-Extension.png"},
+  { id: 28, title: "Job Tracker — Job Application Management Dashboard", category: "Other", description: "A modern, responsive job application tracker built with React and Vite to help job seekers organize applications, monitor hiring progress, and manage their job search from one dashboard.", link: "https://github.com/Arman1263/Job-Tracker", image: "static/images/Projects/other/job_tracker.png"},
 
-        ];
+    ];
 
 
 
@@ -1266,6 +1275,36 @@
     icon: "📊",
     link: "https://medium.com/@armanshikalgar/how-much-statistics-do-you-actually-need-for-machine-learning-a-practical-breakdown-b33cc181d43f?sharedUserId=armanshikalgar",
     image: "static/images/Blogs/Stats.png"
+  },
+  {
+    id: 4,
+    title: "Artificial General Intelligence (AGI): The Next Frontier in Artificial Intelligence",
+    date: "Nov 15, 2026",
+    excerpt: "What AGI really means, how it differs from today’s AI, where we stand, and how it could reshape humanity’s future.",
+    tags: ["AI", "AGI", "Future", "Maths", "Learning"],
+    icon: "🤖",
+    link: "https://medium.com/@armanshikalgar/artificial-general-intelligence-agi-the-next-frontier-in-artificial-intelligence-90d9fdc3b47f?sharedUserId=armanshikalgar",
+    image: "static/images/Blogs/AGI.png"
+  },
+  {
+    id: 5,
+    title: "Artificial Superintelligence (ASI): What Happens When AI Surpasses Human Intelligence?",
+    date: "Nov 15, 2026",
+    excerpt: "Imagine a machine that can think, learn, innovate, and solve problems better than the smartest human beings. What happens when artificial intelligence becomes more intelligent than us?",
+    tags: ["ASI", "Tech", "AI", "Future", "Learning"],
+    icon: "📊",
+    link: "https://medium.com/@armanshikalgar/artificial-superintelligence-asi-what-happens-when-ai-surpasses-human-intelligence-bed270e5f8ea?sharedUserId=armanshikalgar",
+    image: "static/images/Blogs/ASI.png"
+  },
+  {
+    id: 6,
+    title: "How to Keep Your Data Private in This AI World",
+    date: "Nov 15, 2026",
+    excerpt: "AI knows how to answer our questions, generate images, write code, and analyze information. But how much of our personal information are we giving away in return?",
+    tags: ["AI", "Data Privacy", "Cyber Security", "Data", "LLM's"],
+    icon: "📊",
+    link: "https://medium.com/@armanshikalgar/how-to-keep-your-data-private-in-this-ai-world-1737b0318603?sharedUserId=armanshikalgar",
+    image: "static/images/Blogs/Data_Privacy.jpg"
   },
 
 ];
